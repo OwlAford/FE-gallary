@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Zoom图片放大</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="blank"/>
+<meta name="format-detection" content="telephone=no"/>
+<style type="text/css">
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,header,hgroup,nav,section,article,aside,footer,figure,figcaption,menu,button{margin:0;padding:0;outline:0}body{font-family:"Helvetica Neue",Helvetica,STHeiTi,sans-serif;line-height:1.5;font-size:15px;color:#000;background-color:#f8f9fa;-webkit-user-select:none;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(255,255,255,0)}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:normal}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}li{list-style:none}input,button,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;border:0;background:0;-webkit-appearance:none;outline:0}a,button,input,select,textarea,a:focus,button:focus,input:focus,select:focus,textarea:focus,[onclick]{outline:0;-webkit-tap-highlight-color:rgba(255,255,255,0)}a{-webkit-touch-callout:none;text-decoration:none;color:#00a5e0;outline:0}em,i{font-style:normal}em{color:#f28c48}::-webkit-input-placeholder{color:#999}i,b{font-style:normal; font-weight:normal;}
+.thumb{width:480px; height:270px; margin:20px auto; overflow:hidden; position:relative;}
+.thumb img{display:block; height:100%; width:100%;}
+.thumb .zoomer{position:absolute; left:0; top:0; background:rgba(255,255,255,0.3); height:80px; width:80px; cursor:move; -webkit-transition:opacity .3s; transition:opacity .3s; opacity:0;}
+.scan{width:280px; height:280px; margin:0 auto; background:#EEE; overflow:hidden; position:relative;}
+.scan img{position:absolute; left:0; top:0;}
+</style>
+</head>
+
+<body>
+<div class="thumb">
+  <img src="demo.jpg" width="100%">
+</div>
+<div class="scan"></div>
+
+<script type="text/javascript">
+  function Zoom(){
+     this.thumb = document.querySelector('.thumb');
+	 this.thumbWidth = this.thumb.offsetWidth;
+	 this.thumbHeight = this.thumb.offsetHeight;
+	 this.thumbLeft = this.thumb.offsetLeft;
+	 this.thumbTop = this.thumb.offsetTop;
+	 this.thumbImg = this.thumb.querySelector('img');
+	 this.scan = document.querySelector('.scan');
+	 this.scanLength = this.scan.offsetHeight;
+	 //页面初始化入口
+	 this.init();
+  }
+  
+  //将鼠标的坐标数据换算成相对值并限制鼠标坐标位置
+  Zoom.prototype.relPoz = function(type, n){
+    if(type == 'x'){
+	  var relLeft = n-this.thumbLeft;
+	  if(relLeft < this.zoomerSize/2){
+	    relLeft = this.zoomerSize/2;
+	  }else if(relLeft > this.thumbWidth-this.zoomerSize/2){
+	    relLeft = this.thumbWidth-this.zoomerSize/2;
+	  }
+	  return relLeft;
+	}else{
+	  var relTop = n-this.thumbTop;	
+	  if(relTop < this.zoomerSize/2){
+	    relTop = this.zoomerSize/2;
+	  }else if(relTop > this.thumbHeight - this.zoomerSize/2){
+	    relTop = this.thumbHeight - this.zoomerSize/2;
+	  }
+	  return relTop;
+	}
+  }
+  
+  //鼠标移入触发
+  Zoom.prototype.mouseIn = function(){
+	var $this = this;  
+    this.thumb.addEventListener('mouseover', function(e){
+	   $this.zoomer.style.opacity = 1;
+	}, false);
+  }
+  
+  //鼠标移入触发
+  Zoom.prototype.mouseOut = function(){
+	var $this = this;  
+    this.thumb.addEventListener('mouseout', function(e){
+	   $this.zoomer.style.opacity = 0;
+	}, false);
+  }
+  
+  //鼠标移动时候触发
+  Zoom.prototype.mouseMove = function(){
+	var $this = this;  
+    this.thumb.addEventListener('mousemove', function(e){
+      //console.log($this.relPoz('x',e.clientX) +'vs'+ $this.relPoz('y',e.clientY));
+	  $this.zoomer.style.left = $this.relPoz('x',e.clientX) + 'px';
+	  $this.zoomer.style.top = $this.relPoz('y',e.clientY) + 'px';
+	  //console.log($this.relPoz('x',e.clientX) - $this.zoomerSize/2);
+	  $this.viewPic.style.left = ($this.relPoz('x',e.clientX) - $this.zoomerSize/2)*$this.ratio*(-1) + 'px';
+	  $this.viewPic.style.top = ($this.relPoz('y',e.clientY) - $this.zoomerSize/2)*$this.ratio*(-1) + 'px';
+	}, false);
+  }
+  
+  Zoom.prototype.init = function(){
+	 var $this = this;
+	 //将放大镜置于图片上
+	 this.zoomer = document.createElement('div');
+	 this.zoomer.className = 'zoomer';
+	 this.thumb.appendChild(this.zoomer); 
+	 
+	 //将需要放大的图片置入新的容器中
+	 var Orginal; 
+	 this.viewPic = Orginal = document.createElement('img');
+	 Orginal.setAttribute('src',this.thumbImg.getAttribute('src')); 
+	 this.scan.appendChild(Orginal);
+	 
+	 //等待图片载入获取对应高度参数执行方法
+	 Orginal.onload = function(){
+	    this.orgHeight = Orginal.offsetHeight; 
+		//按照比例设置zoomer大小
+		var zoomerSize;
+		$this.ratio = Orginal.offsetHeight/$this.thumbHeight;
+		$this.zoomerSize = zoomerSize = ($this.scanLength/$this.ratio);
+		$this.zoomer.style.height = $this.zoomer.style.width = zoomerSize + 'px';
+		$this.zoomer.style.margin = zoomerSize*(-0.5)+'px 0 0 '+zoomerSize*(-0.5)+'px';
+		//图片载入后触发鼠标移入事件
+		$this.mouseIn();
+		$this.mouseMove();
+		$this.mouseOut();
+	 }
+  }
+  
+  //判断设备对事件的支持
+  Zoom.prototype.support = function(eventType){
+	var result;
+	var isSupportTouch = "ontouchend" in document ?  result = true : result = false;
+	return result;
+  }
+  
+  /**********************************调用**********************************/
+  // var platform;
+  //(new Zoom).support("ontouchstart") ? platform = 'Mobile' : platform = 'PC';
+  //console.log(platform);
+  
+  new Zoom();
+</script> 
+</body>
+</html>
