@@ -1,1 +1,1 @@
-# Dynamic Pages Gallery
+# FE gallary
