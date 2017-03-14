@@ -36,7 +36,7 @@ webpackConfig.entry = {
   app : __DEV__
     ? [APP_ENTRY].concat(`webpack-hot-middleware/client?path=${project.compiler_public_path}__webpack_hmr`)
     : [APP_ENTRY],
-  vendor : project.compiler_vendors
+  // vendor : project.compiler_vendors
 }
 
 // 打包输出目录

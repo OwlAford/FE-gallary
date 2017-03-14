@@ -19,7 +19,7 @@ const config = {
   // 远程服务配置，默认开启代理
   service_agent : false,
   remote_host   : 'http://139.224.128.69:9080',
-  project_name  : 'inmanage',
+  project_name  : '',
 
   // 本地服务配置
   server_host     : ip.address(),
