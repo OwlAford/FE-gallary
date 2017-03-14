@@ -20,6 +20,7 @@ if (project.env === 'development') {
   const compiler = webpack(webpackConfig)
 
   debug('Enabling webpack dev and HMR middleware')
+  
   app.use(require('webpack-dev-middleware')(compiler, {
     publicPath  : webpackConfig.output.publicPath,
     contentBase : project.paths.client(),
@@ -33,22 +34,17 @@ if (project.env === 'development') {
 
   app.use(express.static(project.paths.public()))
 
-  // 代理转发，解决跨域问题
-  app.use('/', function(req, res) {
-    var url = 'http://139.224.128.69:8060' + req.url
-    console.log('[PROXY]: ' + url)
-    req.pipe(request(url)).pipe(res)
-  })
+  //代理转发，解决跨域问题
+  if (project.service_agent) {
+    app.use('/', (req, res) => {
+      const url = `${project.remote_host}${req.url}`
+      debug(`[PROXY]: ${url}`)
+      req.pipe(request(url)).pipe(res)
+    })
+  }
 
 } else {
-  debug(
-    'Server is being run outside of live development mode, meaning it will ' +
-    'only serve the compiled application bundle in ~/dist. Generally you ' +
-    'do not need an application server for this and can instead use a web ' +
-    'server such as nginx to serve your static files. See the "deployment" ' +
-    'section in the README for more information on deployment strategies.'
-  )
-
+  debug('Server is being run outside of live development mode')
   app.use(express.static(project.paths.dist()))
 }
 

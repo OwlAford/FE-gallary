@@ -2,6 +2,7 @@ const path = require('path')
 const debug = require('debug')('app:config:project')
 const argv = require('yargs').argv
 const ip = require('ip')
+
 debug('Creating default configuration.')
 
 // 默认配置
@@ -15,32 +16,36 @@ const config = {
   dir_public : 'public',
   dir_server : 'server',
 
-  // 运行服务配置
-  server_host : ip.address(),
-  server_port : process.env.PORT || 3000,
+  // 远程服务配置，默认开启代理
+  service_agent : false,
+  remote_host   : 'http://139.224.128.69:9080',
+  project_name  : 'inmanage',
+
+  // 本地服务配置
+  server_host     : ip.address(),
+  server_port     : process.env.PORT || 8888,
+  autoOpenBrowser : true,
 
   // 编译配置
   compiler_babel : {
     cacheDirectory : true,
-    plugins        : ['transform-runtime'],
+    plugins        : ['transform-runtime', 'transform-decorators-legacy'],
     presets        : ['es2015', 'react', 'stage-0']
   },
   compiler_devtool         : 'source-map',
-  compiler_hash_type       : 'hash',
+  compiler_hash_type       : 'hash:8',
   compiler_fail_on_warning : false,
   compiler_quiet           : false,
   compiler_public_path     : '/',
   compiler_stats           : {
-    chunks : false,
+    chunks       : false,
     chunkModules : false,
-    colors : true
+    colors       : true
   },
   compiler_vendors : [
-    // 'underscore',
-    // 'echarts',
+    // 'react'
   ]
 }
-
 
 // 全局环境配置参数
 config.globals = {
@@ -53,22 +58,8 @@ config.globals = {
   '__BASENAME__' : JSON.stringify(process.env.BASENAME || '')
 }
 
-// 校验组件模块依赖
-const pkg = require('../package.json')
-
-config.compiler_vendors = config.compiler_vendors
-  .filter((dep) => {
-    if (pkg.dependencies[dep]) return true
-
-    debug(
-      `Package "${dep}" was not found as an npm dependency in package.json; ` +
-      `it won't be included in the webpack vendor bundle.
-       Consider removing it from \`compiler_vendors\` in ~/config/index.js`
-    )
-  })
-
 // 基础路径配置
-function base () {
+function base() {
   const args = [config.path_base].concat([].slice.call(arguments))
   return path.resolve.apply(path, args)
 }
@@ -82,7 +73,7 @@ config.paths = {
 
 // 调试环境配置
 debug(`Looking for environment overrides for NODE_ENV "${config.env}".`)
-const environments = require('./environments.config')
+const environments = require('./env.config')
 const overrides = environments[config.env]
 if (overrides) {
   debug('Found overrides, applying to default configuration.')

@@ -1,11 +1,12 @@
 .DS_STORE
-*.log
+.git
 
+*.log
 *.sublime-project
 *.sublime-workspace
 
 node_modules
-
+resources
 dist
 
-.idea/
+
