@@ -64,7 +64,7 @@ table {
 }
 
 body, input, select, textarea, a {
-	font: 14px/1.5 Microsoft Yahei, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+	font: 13px/1.5 Microsoft Yahei, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
 	color: #8088B9;
 }
 
@@ -243,7 +243,7 @@ a:active {
 
 .motto .name {
 	padding: 68px 0 10px; 
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .motto .name span {
@@ -323,7 +323,7 @@ a:active {
 }
 
 .base .row {
-	padding: 12px 5px;
+	padding: 10px 5px;
 	margin: 0 15px;
 	border-bottom: 1px solid #f6f6f6;
 }
@@ -389,7 +389,6 @@ a:active {
 	text-align: center;
 	padding: 12px 0 14px;
 	cursor: pointer;
-	font-size: 13px;
 	transition: background-color .3s;
 	-webkit-transition: background-color .3s;
 }
@@ -469,7 +468,8 @@ a:active {
 }
 
 .pages .cnt p {
-	padding: 5px 0;
+	padding: 4px 0;
+  line-height: 1.8;
 }
 
 .pages .cnt p a {
@@ -482,14 +482,14 @@ a:active {
 
 .pages .cnt h1 {
 	line-height: 2;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 700;
 	padding-top: 5px;
 }
 
 .pages .cnt h2 {
 	line-height: 1.5;
-	font-size: 15px;
+	font-size: 14px;
 	color: #aeb2d1;
 }
 
@@ -917,6 +917,15 @@ transform:rotateX(-33.5deg) rotateY(-315deg)
 .skill .list .label i.f{
 	background-image: url(../img/webpack.svg);
 }
+
+.skill .list .label i.g{
+  background-image: url(../img/react.svg);
+}
+
+.skill .list .label i.h{
+  background-image: url(../img/vue.png);
+}
+
 
 .skill .list .row {
 	cursor: pointer;
