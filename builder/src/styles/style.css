@@ -139,6 +139,7 @@ a:active {
 	font-size: 12px;
 	margin-left: 6px;
 	color: #CED0E1;
+	font-weight: normal;
 	text-shadow: 0 1px 0 #fff;
 }
 
@@ -254,7 +255,8 @@ a:active {
 	display: block;
 	height: 18px;
 	width: 18px;
-	background: url(../img/female.png) center center no-repeat;
+	background: url(../img/male.svg) center center no-repeat;
+	background-size: 100% auto;
 	position: absolute;
 	right: -24px;
 	top: 50%;
@@ -347,7 +349,7 @@ a:active {
 	line-height: 40px;
 	text-align: center;
 	color: #fff;
-	background: #2B98FF url(../img/weibo.png) 20px center no-repeat;
+	background: #2B98FF url(../img/github.png) 20px center no-repeat;
 	background-size: 20px auto;
 	border-radius: 20px;
 	display: block;
@@ -470,10 +472,25 @@ a:active {
 	padding: 5px 0;
 }
 
+.pages .cnt p a {
+	color: #0094e8;
+}
+
+.pages .cnt p a:hover {
+	text-decoration: underline;
+}
+
 .pages .cnt h1 {
 	line-height: 2;
 	font-size: 16px;
 	font-weight: 700;
+	padding-top: 5px;
+}
+
+.pages .cnt h2 {
+	line-height: 1.5;
+	font-size: 15px;
+	color: #aeb2d1;
 }
 
 .pages .myself .tit {
@@ -521,10 +538,14 @@ transform:rotateX(-33.5deg) rotateY(-315deg)
 }
 }
 .logo {
-	width: 100%;
+	width: 220px;
 	height: 220px;
-	position: relative;
-	overflow: hidden
+	overflow: hidden;
+	position: absolute;
+	right: -20px;
+	bottom: -20px;
+	z-index: 999;
+	transform: scale3d(.6, .6, .6)
 }
 .cube {
 	width: 100%;
@@ -694,18 +715,10 @@ transform:rotateX(-33.5deg) rotateY(-315deg)
 }
 
 .myself .cnt {
-	padding: 20px  15px 20px 240px;
+	padding: 20px;
 	margin-bottom: 20px;
 	min-height: 180px;
 	position: relative;
-}
-
-.myself .logo {
-	position: absolute;
-	left: 0;
-	top: 50%;
-	width: 220px;
-	margin-top: -110px;
 }
 
 .pages .basic .tit {
@@ -890,19 +903,19 @@ transform:rotateX(-33.5deg) rotateY(-315deg)
 }
 
 .skill .list .label i.c{
-	background-image: url(../img/ax.png);
+	background-image: url(../img/AI.svg);
 }
 
 .skill .list .label i.d{
-	background-image: url(../img/vs.png);
+	background-image: url(../img/git.svg);
 }
 
 .skill .list .label i.e{
-	background-image: url(../img/seo.png);
+	background-image: url(../img/node.svg);
 }
 
 .skill .list .label i.f{
-	background-image: url(../img/pr.png);
+	background-image: url(../img/webpack.svg);
 }
 
 .skill .list .row {
@@ -1000,7 +1013,7 @@ transform:rotateX(-33.5deg) rotateY(-315deg)
 }
 
 .hobby .list li i.b {
-	background-image: url(../img/food.png);
+	background-image: url(../img/photo.png);
 }
 
 .hobby .list li i.c {

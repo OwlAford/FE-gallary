@@ -6,7 +6,7 @@ $(function(){
 	setTimeout(function(){$('#tab').addClass('done')},900);
 	setTimeout(function(){$('#page').addClass('done')},1000);
 
-	var init = function(){
+	var init = function() {
 		/*
 		 * tab切换功能
 		 */
