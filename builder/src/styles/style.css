@@ -323,9 +323,16 @@ a:active {
 }
 
 .base .row {
-	padding: 10px 5px;
+	padding: 9px 5px;
 	margin: 0 15px;
 	border-bottom: 1px solid #f6f6f6;
+}
+
+.base .row a {
+	color: #0094e8;
+	padding-left: 20px;
+	background: url(../img/dl.svg) 0 center no-repeat;
+	background-size: 20px;
 }
 
 .base .row:last-child {
@@ -385,7 +392,7 @@ a:active {
 
 .tabs li {
 	float: left;
-	width: 16.66666%;
+	width: 14.2857%;
 	text-align: center;
 	padding: 12px 0 14px;
 	cursor: pointer;
@@ -740,19 +747,19 @@ transform:rotateX(-33.5deg) rotateY(-315deg)
 }
 
 .pages .edu .tit {
-    background-image: url(../img/book.png);
+  background-image: url(../img/book.png);
 }
 
 .pages .work .tit {
-    background-image: url(../img/grid.png);
+  background-image: url(../img/grid.png);
 }
 
 .pages .skill .tit {
-    background-image: url(../img/brush.png);
+  background-image: url(../img/brush.png);
 }
 
 .pages .hobby .tit {
-    background-image: url(../img/like.png);
+  background-image: url(../img/like.png);
 }
 
 .timeline {
@@ -987,6 +994,10 @@ transform:rotateX(-33.5deg) rotateY(-315deg)
   to {
     background-position: -200% 0;
   }
+}
+
+.self .cnt {
+	padding: 10px 20px 20px;
 }
 
 .hobby .list {
