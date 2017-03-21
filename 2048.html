@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2048</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var arr1 = [
+			[0, 0, 2, 0],
+			[4, 4, 8, 8],
+			[8, 8, 16, 16],
+			[8, 4, 4, 2]
+		];
+
+		/**
+		 * @ param [array]	arrange = [] // 二维数组，用于初始化或者保存上一次进度
+		 * @ param [Number] range = 4		// 矩阵位数
+		 * @ param [Number] step = 0		 // 操作步数
+		 */
+
+		function game2048 (options) {
+
+			this.opt = {
+				range	 : 4,
+				step		: 0,
+				arrange : null
+			}
+
+			for (var key in options) {
+				if (options[key] !== undefined) {
+					this.opt[key] = options[key];
+				}
+			}
+
+			// 如果没有默认矩阵数组，则生成一个
+			if (!this.opt.arrange) {
+				this.initArrange(this.opt.range)
+			}
+
+		}
+
+		game2048.prototype = {
+
+			isFull: function () {
+				var arr = this.opt.arrange;
+				var combine = [];
+				if (!arr) {
+					return false
+				}
+				for (var i = 0; i < arr.length; i++) {
+					combine = combine.concat(arr[i])
+				}
+				return combine.every(function (num) {
+					return num !== 0
+				})
+			},
+
+			numGenerator: function (arr) {
+				var len = this.opt.range - 1;
+				var full = this.isFull();
+				var x = Math.round(Math.random() * len);
+				var y = Math.round(Math.random() * len);
+				var num = this.opt.step > 30 ? (Math.random() >= 0.5 ? 4 : 2) : 2;
+				if (full) {
+					alert('您已无法移动！');
+					return
+				}
+				if (arr[x][y] === 0) {
+					arr[x][y] = num
+				} else {
+					this.numGenerator(arr)
+				}
+			},
+
+			initArrange: function (len) {
+				var arr = [];	
+				for (var i = 0; i < len; i++) {
+					var subArr = [];
+					for (var j = 0; j < len; j++) {
+						subArr.push(0)
+					};
+					arr.push(subArr);
+				};
+				for (var i = 0; i < this.opt.range / 2; i++) {
+					this.numGenerator(arr);
+				}
+				this.opt.arrange = arr
+				console.log('initArrange\n',this.opt.arrange.join('\n'))
+			},
+			
+			deepCopy: function (obj) {
+				var out = [],
+						len = obj.length;
+				for (var i = 0; i < len; i++) {
+					if (obj[i] instanceof Array) {
+						out[i] = this.deepCopy(obj[i]);
+					} else {
+						out[i] = obj[i];
+					}
+				}
+				return out
+			},
+			
+			transform: function (arr) {
+				var time = 0;
+				var len = arr.length;
+				var newArr = this.deepCopy(arr);
+				for (var i = 0; i < len; i++) {
+					for (var j = 0; j < len; j++) {
+						newArr[j][i] = arr[i][j]
+					}
+				};
+				return newArr
+			},
+
+			// 移动的核心算法
+			move: function (arr) {
+				var i, nextIndex, m,
+						len = arr.length;
+				for (i = 0; i < len; i += 1) {
+					nextIndex = -1;
+					for (m = i + 1; m < len; m++) {
+						if (arr[m] !== 0) {
+							nextIndex = m;
+							break
+						}
+					}
+					if (nextIndex !== -1) {
+						if (arr[i] === 0) {
+							arr[i] = arr[nextIndex];
+							arr[nextIndex] = 0;
+							// 发生移动，原位置重新来一次
+							i -= 1;
+						} else if (arr[i] === arr[nextIndex]) {
+							arr[i] = arr[i] * 2;
+							arr[nextIndex] = 0;
+						}
+					}
+				}
+				return arr
+			},
+
+			// 移动之后
+			moveAfter: function (arr) {
+				for (var i = 0; i < this.opt.range / 4; i++) {
+					this.numGenerator(arr);
+				}
+			},
+
+			// 向左移动
+			moveLeft: function () {
+				var arr = this.deepCopy(this.opt.arrange);
+				for (var i = 0; i < arr.length; i++) {
+					this.move(arr[i])
+				};
+				this.moveAfter(arr);
+				this.opt.arrange = arr;
+				console.log('moveLeft\n',this.opt.arrange.join('\n'))
+			},
+
+			// 向上移动
+			moveUp: function () {
+				var arr = this.transform(this.deepCopy(this.opt.arrange));
+				for (var i = 0; i < arr.length; i++) {
+					this.move(arr[i])
+				}
+				arr = this.transform(arr);
+				this.moveAfter(arr);
+				this.opt.arrange = arr;
+				console.log('moveUp\n',this.opt.arrange.join('\n'))
+			}
+
+		}
+
+		var GAME = new game2048()
+		var arr2 = GAME.transform(arr1)
+		// console.log(arr1.join('\n'))
+		// console.log(arr2.join('\n'))
+
+		GAME.moveLeft()
+		GAME.moveLeft()
+		GAME.moveUp()
+		GAME.moveUp()
+		GAME.moveLeft()
+	</script>
+</body>
+</html>
