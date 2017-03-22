@@ -225,6 +225,7 @@ body {
 				max            : 0,
 				range          : 4,
 				step           : 0,
+				achieve        : false,
 				beforeArrange  : null,
 				arrange        : null,
 				gameOver       : false,
@@ -307,7 +308,8 @@ body {
 				this.opt.max = this.arrMerge(this.opt.arrange).sort(function (a, b) {
 					return b - a
 				})[0]
-				if (this.opt.max === 2048) {
+				if (this.opt.max === 2048 && !this.opt.achieve) {
+					this.opt.achieve = true;
 					alert('恭喜你达成2048成就！')
 				}
 			},
@@ -556,6 +558,8 @@ body {
 									} 
 								}
 							}
+						} else {
+							pt = '.6';
 						}
 						li.innerHTML = cell 
 						? '<span style="font-size: ' + pt + 'em">' + cell + '</span>' 
