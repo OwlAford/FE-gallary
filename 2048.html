@@ -17,6 +17,7 @@ body {
 	font-size: 0.28rem;
 	background-color: #F9F9F1;
 	color: #776E65;
+	overflow-x: hidden; 
 }
 
 #game {
@@ -24,9 +25,9 @@ body {
 }
 
 #game .info {
-	font-size: 0.24em;
+	font-size: 0.04em;
 	font-weight: 700;
-	padding: 0.8em;
+	padding: 1em;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-between;
@@ -40,6 +41,15 @@ body {
 	color: #fff;
 }
 
+#game .info.btn > * {
+	padding: 0.6em 1em;
+	background-color: #52B9CA;
+}
+
+#game .info.btn > .restart {
+	background-color: #FC682C;
+}
+
 #game .info .tt {
 	padding-bottom: 0.1rem;
 	opacity: .6;
@@ -48,7 +58,6 @@ body {
 #grid {
 	width: 100%;
 	background: #BBADA0;
-	padding: 0.06rem 0;
 }
 
 #grid ul {
@@ -72,6 +81,7 @@ body {
 	background-color: #F05D3A;
 	color: #fff;
 	border-radius: 0.08em;
+	text-decoration: none;
 }
 
 #grid ul li.cell2 span {
@@ -100,6 +110,70 @@ body {
 	background-color: #CCC0B0;
 	border: 1px solid #EAE1D7;
 }
+
+#game .menu {
+	margin: .1em;
+	font-size: .2em;
+}
+
+.mask {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .8);
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+.mask .box {
+	background-color: #F9F9F1;
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	top: 10%;
+	bottom: 10%;
+	padding: 1em;
+	border-radius: 1em;
+}
+
+.mask .box h1 {
+	font-size: 2.6em;
+	text-align: center;
+	padding: .4em;
+	color: #6B8E0B;
+}
+
+.mask .box li,
+.mask .box .start {
+	text-align: center;
+	font-size: 1.4em;
+	list-style: none;
+	display: block;
+	padding: .5em 0;
+	border-radius: 3em;
+	cursor: pointer;
+}
+
+.mask .box ul {
+	padding: 0 1em;
+}
+
+.mask .box li.active {
+	background-color: #01ABCE;
+	color: #fff;
+}
+
+.mask .box .start {
+	background-color: #FC682C;
+	color: #fff;
+	border-radius: .2em;
+	margin-top: 2em;
+}
+
+.mask.show {
+	display: block;
+}
 </style>
 </head>
 <body>
@@ -114,8 +188,22 @@ body {
 				<span id="max">0</span>
 			</div>
 		</div>
-		<div id="grid">
-			
+		<div id="grid"></div>
+		<div class="info btn">
+			<div class="toMenu" id="menuBtn">返回菜单</div>
+			<div class="restart" id="restartBtn">重新开始</div>
+		</div>
+	</div>
+	<div class="mask show" id="selectMask">
+		<div class="box">
+			<h1>2048</h1>
+			<ul>
+				<li class="typ active" data-range="4">4×4宫格</li>
+				<li class="typ" data-range="6">6×6宫格</li>
+				<li class="typ" data-range="8">8×8宫格</li>
+				<li class="typ" data-range="12">12×12宫格</li>
+			</ul>
+			<div class="start">开始游戏</div>
 		</div>
 	</div>
 	<script src="http://cdn.bootcss.com/hammer.js/2.0.8/hammer.min.js"></script>
@@ -177,6 +265,12 @@ body {
 				return document.getElementById(id)
 			},
 
+			restart: function (range) {
+				range && this.setWidth(range);
+				this.initArrange(range);
+				this.render();
+			},
+
 			setWidth: function (range) {
 				var clientWidth = document.documentElement.clientWidth;
 				var clientHeight = document.documentElement.clientHeight;
@@ -186,7 +280,7 @@ body {
 				}
 				this.opt.cellWidth = ~~(clientWidth * 0.98 / range);
 				this.$grid.style.padding = clientWidth * 0.01 + 'px';
-				this.$game.style.fontSize = this.opt.cellWidth + 'px';
+				this.$game.style.fontSize = clientWidth + 'px';
 			},
 
 			arrMerge: function (arr) {
@@ -253,7 +347,10 @@ body {
 				this.opt.score = 0;
 				this.opt.gameOver = false;
 				var arr = [];
-				var len = range || this.opt.range;	
+				if (range) {
+					this.opt.range = range;
+				} 
+				var len = this.opt.range;	
 				for (var i = 0; i < len; i++) {
 					var subArr = [];
 					for (var j = 0; j < len; j++) {
@@ -265,7 +362,7 @@ body {
 					this.numGenerator(arr);
 				}
 				this.opt.beforeArrange = this.opt.arrange = arr;
-				console.log('initArrange\n',this.opt.arrange.join('\n'))
+				console.log(this.opt.arrange.join('\n'))
 			},
 			
 			deepCopy: function (obj) {
@@ -344,7 +441,8 @@ body {
 			// 基础移动实现
 			reverseMove: function (isTransform, isReverse) {
 				if (this.opt.gameOver) {
-					alert('别玩了，结束了！')
+					var ctrl = confirm('游戏结束，是否重新开始？');
+					ctrl ? this.restart() : null;
 					return
 				}
 				var self = this;
@@ -473,7 +571,35 @@ body {
 			}
 		}
 
-		var GAME = new game2048()
+
+		// 选择游戏类型
+		var GAME = new game2048();
+		var gameType = 4;
+		var slectedType = document.querySelector('.typ.active');
+		var selectMask = document.getElementById('selectMask');
+		var menuBtn = document.getElementById('menuBtn');
+		var restartBtn = document.getElementById('restartBtn');
+
+		selectMask.addEventListener('click', function (e) {
+			var tar = e.target;
+			if (tar.className == 'typ') {
+				slectedType.classList.remove('active');
+				gameType = tar.getAttribute('data-range') * 1;
+				tar.classList.add('active');
+				slectedType = tar;
+			} else if (tar.className == 'start') {
+				gameType !== GAME.opt.range ? GAME.restart(gameType) : null;
+				selectMask.style.display = 'none';
+			}
+		}, false)
+
+		menuBtn.addEventListener('click', function () {
+			selectMask.style.display = '';
+		}, false)
+
+		restartBtn.addEventListener('click', function () {
+			GAME.restart();
+		}, false)
 	</script>
 </body>
 </html>
