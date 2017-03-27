@@ -90,6 +90,12 @@ $ git tag -l "v0.1.*"
 git tag -a v0.1.2 -m "0.1.2版本"
 ```
 
+### 提交标签到github
+
+```bash
+git push origin v0.1.2
+```
+
 ### 切换到标签
 
 ```bash
