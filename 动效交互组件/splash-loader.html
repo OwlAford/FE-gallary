@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>splash-loader</title>
+  <style type="text/css">
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: monospace;
+      background: linear-gradient(135deg, #124bfe, #012390);
+    }
+
+    .blobs {
+      filter: url("#goo");
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 200;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes wobble {
+      from {
+        transform: scale(0.1);
+      }
+      to {
+        transform: scale(4);
+      }
+    }
+    .blob {
+      position: absolute;
+      background: #111;
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      color: black;
+      font-size: 40px;
+      border-radius: 100%;
+      margin-top: -50px;
+      margin-left: -50px;
+      transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+      transform: translate3d(0, 0, 0);
+      background: #fff;
+      trasnform-origin: 0 0;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+      @debug: $x;
+    }
+    .blob:nth-child(17) {
+      transform: scale(1);
+      animation: wobble 8s alternate ease-in-out infinite;
+    }
+    @keyframes move-1 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(155.56349px, 155.56349px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(1) {
+      animation: move-1 2s ease-in-out alternate -0.5s infinite;
+    }
+    @keyframes move-2 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(0px, 220px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(2) {
+      animation: move-2 2s ease-in-out alternate -1s infinite;
+    }
+    @keyframes move-3 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(-155.56349px, 155.56349px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(3) {
+      animation: move-3 2s ease-in-out alternate -1.5s infinite;
+    }
+    @keyframes move-4 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(-220px, 0px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(4) {
+      animation: move-4 2s ease-in-out alternate -2s infinite;
+    }
+    @keyframes move-5 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(-155.56349px, -155.56349px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(5) {
+      animation: move-5 2s ease-in-out alternate -2.5s infinite;
+    }
+    @keyframes move-6 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(0px, -220px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(6) {
+      animation: move-6 2s ease-in-out alternate -3s infinite;
+    }
+    @keyframes move-7 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(155.56349px, -155.56349px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(7) {
+      animation: move-7 2s ease-in-out alternate -3.5s infinite;
+    }
+    @keyframes move-8 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(220px, 0px, 0) scale(0.33);
+      }
+    }
+    .blob:nth-child(8) {
+      animation: move-8 2s ease-in-out alternate -4s infinite;
+    }
+    @keyframes move2-9 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(28.28427px, 28.28427px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(9) {
+      animation: move2-9 2s ease-in-out alternate -4.28571s infinite;
+    }
+    @keyframes move2-10 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(0px, 40px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(10) {
+      animation: move2-10 2s ease-in-out alternate -4.7619s infinite;
+    }
+    @keyframes move2-11 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(-28.28427px, 28.28427px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(11) {
+      animation: move2-11 2s ease-in-out alternate -5.2381s infinite;
+    }
+    @keyframes move2-12 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(-40px, 0px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(12) {
+      animation: move2-12 2s ease-in-out alternate -5.71429s infinite;
+    }
+    @keyframes move2-13 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(-28.28427px, -28.28427px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(13) {
+      animation: move2-13 2s ease-in-out alternate -6.19048s infinite;
+    }
+    @keyframes move2-14 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(0px, -40px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(14) {
+      animation: move2-14 2s ease-in-out alternate -6.66667s infinite;
+    }
+    @keyframes move2-15 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(28.28427px, -28.28427px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(15) {
+      animation: move2-15 2s ease-in-out alternate -7.14286s infinite;
+    }
+    @keyframes move2-16 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(40px, 0px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(16) {
+      animation: move2-16 2s ease-in-out alternate -7.61905s infinite;
+    }
+    @keyframes move2-17 {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(28.28427px, 28.28427px, 0) scale(1.6);
+      }
+    }
+    .blob:nth-child(17) {
+      animation: move2-17 2s ease-in-out alternate -8.09524s infinite;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="blobs">
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+  <div class="blob active"></div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="17" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+      <feBlend in="SourceGraphic" in2="goo"/>
+    </filter>
+  </defs>
+</svg>
+</body>
+</html>
