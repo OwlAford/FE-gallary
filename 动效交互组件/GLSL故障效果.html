@@ -142,19 +142,19 @@
       function ConsoleSignature() {
         _classCallCheck(this, ConsoleSignature);
 
-        this.message = 'created by yoichi kobayashi';
-        this.url = 'http://www.tplh.net';
-        this.show();
+        // this.message = 'created by yoichi kobayashi';
+        // this.url = 'http://www.tplh.net';
+        // this.show();
       }
 
-      ConsoleSignature.prototype.show = function show() {
-        if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-          var args = ['\n%c ' + this.message + ' %c%c ' + this.url + ' \n\n', 'color: #fff; background: #222; padding:3px 0;', 'padding:3px 1px;', 'color: #fff; background: #47c; padding:3px 0;'];
-          console.log.apply(console, args);
-        } else if (window.console) {
-          console.log(this.message + ' ' + this.url);
-        }
-      };
+      // ConsoleSignature.prototype.show = function show() {
+      //   if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+      //     var args = ['\n%c ' + this.message + ' %c%c ' + this.url + ' \n\n', 'color: #fff; background: #222; padding:3px 0;', 'padding:3px 1px;', 'color: #fff; background: #47c; padding:3px 0;'];
+      //     console.log.apply(console, args);
+      //   } else if (window.console) {
+      //     console.log(this.message + ' ' + this.url);
+      //   }
+      // };
 
       return ConsoleSignature;
     }();
@@ -225,7 +225,7 @@
       cameraBack.position.set(0, 0, 100);
       cameraBack.lookAt(new THREE.Vector3());
 
-      bgImg.init('http://www.tplh.net/file/osaka01.jpg', function () {
+      bgImg.init('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-386746.jpg'/*'http://www.tplh.net/file/osaka01.jpg'*/, function () {
         sceneBack.add(bgImg.obj);
         scene.add(postEffect.obj);
       });
