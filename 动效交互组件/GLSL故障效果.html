@@ -6,9 +6,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="renderer" content="webkit"/>
 <title>GLSL故障效果</title>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"></script>
 <style type="text/css">
-@import url("https://fonts.googleapis.com/css?family=Homenaje");
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #000;
+  color: #fff;
+}
+html, body, #main {
+  width: 100%;
+  height: 100%;
+}
 .p-canvas-webgl {
   position: fixed;
   z-index: 1;
@@ -42,9 +54,13 @@
 </head>
 
 <body>
+  <div id="main">
+    <h1>使用HTML5画布技术，你可以在浏览器客户端用JavaScript绘制出各种美丽酷炫的图案，这些图案是不能直接保存的，本身也不是图片形式。幸运的是，画布(canvas)对象有一个非常有用的方法:toDataURL()。这个方法能把画布里的图案转变成base64编码格式的png，然后返回 Data URL数据。</h1>
+  </div>
   <canvas class="p-canvas-webgl" id="canvas-webgl"></canvas>
   <script type="text/javascript">
     'use strict';
+    var shot = '';
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -219,13 +235,13 @@
       }), 1000);
     };
 
-    var init = function init() {
+    var init = function init(snapshot) {
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setClearColor(0x111111, 1.0);
       cameraBack.position.set(0, 0, 100);
       cameraBack.lookAt(new THREE.Vector3());
 
-      bgImg.init('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-386746.jpg'/*'http://www.tplh.net/file/osaka01.jpg'*/, function () {
+      bgImg.init(snapshot || 'http://www.tplh.net/file/osaka01.jpg', function () {
         sceneBack.add(bgImg.obj);
         scene.add(postEffect.obj);
       });
@@ -234,7 +250,13 @@
       resizeWindow();
       renderLoop();
     };
-    init();
+    // init();
+
+    html2canvas(document.getElementById('main'), {
+      onrendered: function(canvas) {
+        init(canvas.toDataURL());
+      }
+    })
   </script>
 </body>
 </html>
