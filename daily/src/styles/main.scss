@@ -41,6 +41,11 @@
     right: 20px;
     top: 0;
     text-shadow: 0 1px 0 #fff;
+
+    .icon {
+      font-size: 24px;
+      margin-left: 10px;
+    }
   }
 
   .fixed {
@@ -71,9 +76,14 @@
       padding: 0 15px;
 
       &.active {
-        color: #4a85e4;
+        color: #7992dc;
         position: relative;
         background-color: #eaedf1;
+      }
+
+      .icon {
+        font-size: 22px;
+        margin-right: 5px;
       }
     }
   }
@@ -81,7 +91,6 @@
 
 .menuBar {
   width: 194px;
-  min-height: 400px;
   background-color: #fff;
   position: absolute;
   left: 0;
@@ -117,7 +126,7 @@
 
     &:hover {
       background-color: #0084ff;
-      box-shadow: 0 8px 42px -3px rgba(0, 137, 255, 0.4);
+      box-shadow: 0 8px 34px -3px rgba(0, 137, 255, 0.42);
     }
   }
 
@@ -143,12 +152,12 @@
         &:after {
           content: "";
           height: 100%;
-          width: 15px;
+          width: 18px;
           position: absolute;
           left: 0;
           top: 0;
           border-left: 3px solid #0084ff;
-          background: -webkit-linear-gradient(175deg,  rgba(0,0,0,0) 0, rgba(0, 132, 255, 0.18) 100%);
+          background: -webkit-linear-gradient(175deg,  rgba(0,0,0,0) 0, rgba(0, 132, 255, 0.16) 100%);
         }
       }
     }
@@ -157,7 +166,6 @@
 
 .userBar {
   width: 364px;
-  min-height: 400px;
   background-color: #f7faf9;
   position: absolute;
   left: 194px;
@@ -217,6 +225,7 @@
       outline: none;
       color: #a6b2ad;
       transition: all .3s;
+      cursor: pointer;
 
       &:hover {
         background-color: #f9f9f9;
@@ -312,6 +321,7 @@
         margin-top: -10px;
         background: url(../img/del-dark.svg) no-repeat;
         background-size: 100% auto;
+        cursor: pointer;
       }
 
       .desc {
@@ -446,7 +456,7 @@
           background-color: #f4f4f4;
 
           &.task {
-            background-color: #f1f1f1;
+            background-color: #ededed;
           }
         }
         
