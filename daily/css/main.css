@@ -1,1 +1,491 @@
-.customScrollerBar{overflow:auto}.customScrollerBar::-webkit-scrollbar{width:14px}.customScrollerBar::-webkit-scrollbar-thumb,.customScrollerBar::-webkit-scrollbar-track-piece{background-color:#d6dcda;background-clip:padding-box;border:4px solid transparent;border-radius:7px}.customScrollerBar::-webkit-scrollbar-track-piece{background-color:transparent}.avatar{border-radius:50%;overflow:hidden}.avatar img{display:block;height:100%;width:100%;border-radius:50%}.header{width:100%;height:55px}.header .dateTime{height:54px;line-height:54px;position:absolute;right:20px;top:0;text-shadow:0 1px 0 #fff}.header .dateTime .icon{font-size:24px;margin-left:10px}.header .fixed{width:100%;height:54px;border-bottom:1px solid #e6ebe9;background-color:#f2f5f4;position:fixed;z-index:999;left:0;top:0}.header .fixed .logo{width:100px;height:100%;background:url(../images/logo.svg) no-repeat center center;background-size:40px auto}.header .menu a{line-height:54px;margin-right:15px;cursor:pointer;display:inline-block;height:54px;padding:0 15px}.header .menu a.active{color:#7992dc;position:relative;background-color:#eaedf1}.header .menu a .icon{font-size:22px;margin-right:5px}.menuBar{width:194px;background-color:#fff;position:absolute;left:0;top:55px;bottom:0;z-index:99;padding-top:20px;box-shadow:4px 0 30px rgba(0,0,0,0.08)}.menuBar .addNewGroup{display:block;cursor:pointer;width:152px;height:36px;line-height:36px;border-radius:4px;margin:0 auto;background-color:#4e8bed;color:#fff;text-align:center;transition:all .3s;box-shadow:0 6px 32px -4px rgba(0,102,255,0.28)}.menuBar .addNewGroup i.edit{display:inline-block;vertical-align:middle;width:18px;height:18px;background:url(../images/edit.svg) no-repeat;background-size:100% auto;margin:-2px 8px 0 0}.menuBar .addNewGroup:hover{background-color:#0084ff;box-shadow:0 8px 34px -3px rgba(0,137,255,0.42)}.menuBar .menuList{padding-top:20px}.menuBar .menuList .item{padding:8px 0 8px 20px;line-height:24px;opacity:.6;position:relative;cursor:pointer}.menuBar .menuList .item .icon{font-size:22px;margin:0 5px}.menuBar .menuList .item.active{opacity:1;color:#4a85e4}.menuBar .menuList .item.active:after{content:"";height:100%;width:18px;position:absolute;left:0;top:0;border-left:3px solid #0084ff;background:-webkit-linear-gradient(175deg, transparent 0, rgba(0,132,255,0.16) 100%)}.userBar{width:364px;background-color:#f7faf9;position:absolute;left:194px;top:55px;bottom:0;z-index:98;border-right:1px solid #e6ebe9}.userBar .scroller{padding:15px 0 15px 20px;width:324px}.userBar .addMember{width:100%;text-align:center;padding:10px 0;background-color:#fff;border-radius:4px;display:block;margin-bottom:15px;line-height:32px;cursor:pointer;transition:all .3s;box-shadow:0 4px 24px -2px rgba(0,0,0,0.08);color:#99a2ab}.userBar .addMember:hover{box-shadow:0 6px 20px -3px rgba(0,0,0,0.16)}.userBar .addMember .icon{font-size:24px;margin:-2px 0 0 5px}.userBar .card{width:294px;padding:10px 15px 15px;min-height:130px;background-color:#fff;border-radius:4px;margin-bottom:14px;position:relative}.userBar .card button.add{display:block;padding:10px 15px;line-height:1;width:100%;font-size:16px;margin:20px auto 5px;background-color:transparent;border:1px dashed #dcdcdc;border-radius:6px;outline:none;color:#a6b2ad;transition:all .3s;cursor:pointer}.userBar .card button.add:hover{background-color:#f9f9f9}.userBar .card.active{background-color:#49a7ff;background:-webkit-linear-gradient(148deg, #49A7FF 0, #2f6fdc 100%);color:#fff;box-shadow:0 5px 24px -4px rgba(0,132,255,0.6)}.userBar .card.active button.add{color:#fff;border-color:#fff}.userBar .card.active button.add:hover{background-color:rgba(255,255,255,0.24)}.userBar .card.active .name,.userBar .card.active .time,.userBar .card.active .state{color:#fff}.userBar .card.active .time{opacity:.8}.userBar .card.active .state,.userBar .card.active .desc{opacity:.9}.userBar .card.active .item{border-top:1px dashed rgba(255,255,255,0.3)}.userBar .card.active .item .del{background-image:url(../images/del.svg)}.userBar .card.active .item .desc,.userBar .card.active .item .bar .label{color:#fff}.userBar .card.active .item .bar{background-color:#d4e5ec}.userBar .card.active .item .bar .progress{background-color:#fff}.userBar .card .head{padding-left:45px}.userBar .card .avatar{width:36px;height:36px;position:absolute;left:10px;top:10px;box-shadow:0 3px 12px -2px rgba(0,0,0,0.2)}.userBar .card .name{font-size:16px;color:#4e8bed;font-weight:700;margin-bottom:4px}.userBar .card .time{position:absolute;right:10px;top:10px;color:#c8cecb}.userBar .card .item{padding:10px 0 20px 30px;position:relative;border-top:1px solid #EFF2F7;margin-top:10px}.userBar .card .item .del{height:18px;width:18px;display:block;position:absolute;left:0;top:50%;margin-top:-10px;background:url(../images/del-dark.svg) no-repeat;background-size:100% auto;cursor:pointer}.userBar .card .item .desc{color:#a6b2ad}.userBar .card .item .bar{height:6px;width:230px;position:absolute;left:30px;bottom:4px;background-color:#eee;border-radius:4px}.userBar .card .item .bar .progress{height:100%;background-color:#4e8bed;border-radius:4px}.userBar .card .item .bar .label{position:absolute;right:-36px;bottom:-6px;font-size:12px;color:#999}.userBar .card .state{color:#a6b2ad;font-size:13px}.mainContent{position:absolute;left:559px;top:55px;right:0;bottom:0}.mainContent::-webkit-scrollbar-thumb{background-color:#cbd0d1}.mainContent .timeRange{padding:20px;background-color:#fff;box-shadow:0 0 42px rgba(0,0,0,0.08)}.mainContent .cnt{padding:15px}.mainContent .cnt .mirror{width:100%;height:20px;margin:0 auto;position:relative}.mainContent .cnt .mirror div{background-color:#fff;border-top-right-radius:3px;border-top-left-radius:3px;position:absolute;bottom:0}.mainContent .cnt .mirror div.b{height:20px;width:90%;left:5%;opacity:.4}.mainContent .cnt .mirror div.c{height:10px;width:94%;left:3%;opacity:.6}.mainContent .cnt .tablePanel{min-height:300px;background-color:#fff;border-radius:3px;box-shadow:0 10px 24px -2px rgba(0,0,0,0.12);padding:15px}.mainContent .cnt .tablePanel table{width:100%;background-color:#fafafa;margin-bottom:10px;font-size:13px}.mainContent .cnt .tablePanel table:last-child{margin-bottom:0}.mainContent .cnt .tablePanel table th,.mainContent .cnt .tablePanel table td{padding:10px}.mainContent .cnt .tablePanel table th ol,.mainContent .cnt .tablePanel table td ol{list-style:decimal;padding-left:20px}.mainContent .cnt .tablePanel table th ol li,.mainContent .cnt .tablePanel table td ol li{padding:5px}.mainContent .cnt .tablePanel table th{background-color:#e8e8e8;font-size:16px;font-weight:bold}.mainContent .cnt .tablePanel table .task{vertical-align:middle;text-align:center;background-color:#f4f4f4;color:#bbb;font-size:14px}.mainContent .cnt .tablePanel table tr:nth-child(even) td{background-color:#f4f4f4}.mainContent .cnt .tablePanel table tr:nth-child(even) td.task{background-color:#ededed}.mainContent .cnt .tablePanel table.active{background-color:#f8fcff}.mainContent .cnt .tablePanel table.active th{background-color:#cfe0f9;color:#6393e0}.mainContent .cnt .tablePanel table.active .task{background-color:#eef3fd;color:#89a1d8}.mainContent .cnt .tablePanel table.active li{color:#6b74b5}.mainContent .cnt .tablePanel table.active tr:nth-child(even) td{background-color:#ecf1fb}.mainContent .cnt .tablePanel table.active tr:nth-child(even) td.task{background-color:#e1ebfd}
+.customScrollerBar {
+  overflow: auto;
+}
+
+.customScrollerBar::-webkit-scrollbar {
+  width: 14px;
+}
+
+.customScrollerBar::-webkit-scrollbar-thumb, .customScrollerBar::-webkit-scrollbar-track-piece {
+  background-color: #d6dcda;
+  background-clip: padding-box;
+  border: 4px solid transparent;
+  border-radius: 7px;
+}
+
+.customScrollerBar::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.header {
+  width: 100%;
+  height: 55px;
+}
+
+.header .dateTime {
+  height: 54px;
+  line-height: 54px;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.header .dateTime .icon {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.header .fixed {
+  width: 100%;
+  height: 54px;
+  border-bottom: 1px solid #e6ebe9;
+  background-color: #f2f5f4;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+}
+
+.header .fixed .logo {
+  width: 100px;
+  height: 100%;
+  background: url(../images/logo.svg) no-repeat center center;
+  background-size: 40px auto;
+}
+
+.header .menu a {
+  line-height: 54px;
+  margin-right: 15px;
+  cursor: pointer;
+  display: inline-block;
+  height: 54px;
+  padding: 0 15px;
+}
+
+.header .menu a.active {
+  color: #7992dc;
+  position: relative;
+  background-color: #eaedf1;
+}
+
+.header .menu a .icon {
+  font-size: 22px;
+  margin-right: 5px;
+}
+
+.menuBar {
+  width: 194px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 55px;
+  bottom: 0;
+  z-index: 99;
+  padding-top: 20px;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.menuBar .addNewGroup {
+  display: block;
+  cursor: pointer;
+  width: 152px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 4px;
+  margin: 0 auto;
+  background-color: #4e8bed;
+  color: #fff;
+  text-align: center;
+  transition: all .3s;
+  box-shadow: 0 6px 32px -4px rgba(0, 102, 255, 0.28);
+}
+
+.menuBar .addNewGroup i.edit {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  background: url(../images/edit.svg) no-repeat;
+  background-size: 100% auto;
+  margin: -2px 8px 0 0;
+}
+
+.menuBar .addNewGroup:hover {
+  background-color: #0084ff;
+  box-shadow: 0 8px 34px -3px rgba(0, 137, 255, 0.42);
+}
+
+.menuBar .menuList {
+  padding-top: 20px;
+}
+
+.menuBar .menuList .item {
+  padding: 8px 0 8px 20px;
+  line-height: 24px;
+  opacity: .6;
+  position: relative;
+  cursor: pointer;
+}
+
+.menuBar .menuList .item .icon {
+  font-size: 22px;
+  margin: 0 5px;
+}
+
+.menuBar .menuList .item.active {
+  opacity: 1;
+  color: #4a85e4;
+}
+
+.menuBar .menuList .item.active:after {
+  content: "";
+  height: 100%;
+  width: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-left: 3px solid #0084ff;
+  background: -webkit-linear-gradient(175deg, transparent 0, rgba(0, 132, 255, 0.16) 100%);
+}
+
+.userBar {
+  width: 364px;
+  background-color: #f7faf9;
+  position: absolute;
+  left: 194px;
+  top: 55px;
+  bottom: 0;
+  z-index: 98;
+  border-right: 1px solid #e6ebe9;
+}
+
+.userBar .scroller {
+  padding: 15px 0 15px 20px;
+  width: 324px;
+}
+
+.userBar .addMember {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fff;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 15px;
+  line-height: 32px;
+  cursor: pointer;
+  transition: all .3s;
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.08);
+  color: #99a2ab;
+}
+
+.userBar .addMember:hover {
+  box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.16);
+}
+
+.userBar .addMember .icon {
+  font-size: 24px;
+  margin: -2px 0 0 5px;
+}
+
+.userBar .card {
+  width: 294px;
+  padding: 10px 15px 15px;
+  min-height: 130px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.userBar .card button.add {
+  display: block;
+  padding: 10px 15px;
+  line-height: 1;
+  width: 100%;
+  font-size: 16px;
+  margin: 20px auto 5px;
+  background-color: transparent;
+  border: 1px dashed #dcdcdc;
+  border-radius: 6px;
+  outline: none;
+  color: #a6b2ad;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.userBar .card button.add:hover {
+  background-color: #f9f9f9;
+}
+
+.userBar .card.active {
+  background-color: #49a7ff;
+  background: -webkit-linear-gradient(148deg, #49A7FF 0, #2f6fdc 100%);
+  color: #fff;
+  box-shadow: 0 5px 24px -4px rgba(0, 132, 255, 0.6);
+}
+
+.userBar .card.active button.add {
+  color: #fff;
+  border-color: #fff;
+}
+
+.userBar .card.active button.add:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+.userBar .card.active .name, .userBar .card.active .time, .userBar .card.active .state {
+  color: #fff;
+}
+
+.userBar .card.active .time {
+  opacity: .8;
+}
+
+.userBar .card.active .state, .userBar .card.active .desc {
+  opacity: .9;
+}
+
+.userBar .card.active .item {
+  border-top: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.userBar .card.active .item .del {
+  background-image: url(../images/del.svg);
+}
+
+.userBar .card.active .item .desc, .userBar .card.active .item .bar .label {
+  color: #fff;
+}
+
+.userBar .card.active .item .bar {
+  background-color: #d4e5ec;
+}
+
+.userBar .card.active .item .bar .progress {
+  background-color: #fff;
+}
+
+.userBar .card .head {
+  padding-left: 45px;
+}
+
+.userBar .card .avatar {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  box-shadow: 0 3px 12px -2px rgba(0, 0, 0, 0.2);
+}
+
+.userBar .card .name {
+  font-size: 16px;
+  color: #4e8bed;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.userBar .card .time {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #c8cecb;
+}
+
+.userBar .card .item {
+  padding: 10px 0 20px 30px;
+  position: relative;
+  border-top: 1px solid #EFF2F7;
+  margin-top: 10px;
+}
+
+.userBar .card .item .del {
+  height: 18px;
+  width: 18px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -10px;
+  background: url(../images/del-dark.svg) no-repeat;
+  background-size: 100% auto;
+  cursor: pointer;
+}
+
+.userBar .card .item .desc {
+  color: #a6b2ad;
+}
+
+.userBar .card .item .bar {
+  height: 6px;
+  width: 230px;
+  position: absolute;
+  left: 30px;
+  bottom: 4px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.userBar .card .item .bar .progress {
+  height: 100%;
+  background-color: #4e8bed;
+  border-radius: 4px;
+}
+
+.userBar .card .item .bar .label {
+  position: absolute;
+  right: -36px;
+  bottom: -6px;
+  font-size: 12px;
+  color: #999;
+}
+
+.userBar .card .state {
+  color: #a6b2ad;
+  font-size: 13px;
+}
+
+.mainContent {
+  position: absolute;
+  left: 559px;
+  top: 55px;
+  right: 0;
+  bottom: 0;
+}
+
+.mainContent::-webkit-scrollbar-thumb {
+  background-color: #cbd0d1;
+}
+
+.mainContent .timeRange {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 42px rgba(0, 0, 0, 0.08);
+}
+
+.mainContent .cnt {
+  padding: 15px;
+}
+
+.mainContent .cnt .mirror {
+  width: 100%;
+  height: 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.mainContent .cnt .mirror div {
+  background-color: #fff;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  position: absolute;
+  bottom: 0;
+}
+
+.mainContent .cnt .mirror div.b {
+  height: 20px;
+  width: 90%;
+  left: 5%;
+  opacity: .4;
+}
+
+.mainContent .cnt .mirror div.c {
+  height: 10px;
+  width: 94%;
+  left: 3%;
+  opacity: .6;
+}
+
+.mainContent .cnt .tablePanel {
+  min-height: 300px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 10px 24px -2px rgba(0, 0, 0, 0.12);
+  padding: 15px;
+}
+
+.mainContent .cnt .tablePanel table {
+  width: 100%;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.mainContent .cnt .tablePanel table:last-child {
+  margin-bottom: 0;
+}
+
+.mainContent .cnt .tablePanel table th, .mainContent .cnt .tablePanel table td {
+  padding: 10px;
+}
+
+.mainContent .cnt .tablePanel table th ol, .mainContent .cnt .tablePanel table td ol {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+.mainContent .cnt .tablePanel table th ol li, .mainContent .cnt .tablePanel table td ol li {
+  padding: 5px;
+}
+
+.mainContent .cnt .tablePanel table th {
+  background-color: #e8e8e8;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mainContent .cnt .tablePanel table .task {
+  vertical-align: middle;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #bbb;
+  font-size: 14px;
+}
+
+.mainContent .cnt .tablePanel table tr:nth-child(even) td {
+  background-color: #f4f4f4;
+}
+
+.mainContent .cnt .tablePanel table tr:nth-child(even) td.task {
+  background-color: #ededed;
+}
+
+.mainContent .cnt .tablePanel table.active {
+  background-color: #f8fcff;
+}
+
+.mainContent .cnt .tablePanel table.active th {
+  background-color: #cfe0f9;
+  color: #6393e0;
+}
+
+.mainContent .cnt .tablePanel table.active .task {
+  background-color: #eef3fd;
+  color: #89a1d8;
+}
+
+.mainContent .cnt .tablePanel table.active li {
+  color: #6b74b5;
+}
+
+.mainContent .cnt .tablePanel table.active tr:nth-child(even) td {
+  background-color: #ecf1fb;
+}
+
+.mainContent .cnt .tablePanel table.active tr:nth-child(even) td.task {
+  background-color: #e1ebfd;
+}

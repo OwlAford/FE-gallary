@@ -1,33 +1,33 @@
 'use strict'
- 
+const del = require('del')
 const gulp = require('gulp')
 const sass = require('gulp-sass')
-const minifycss = require('gulp-minify-css')
 const concat = require('gulp-concat') 
 const uglify = require('gulp-uglify') 
 const rename = require('gulp-rename')
-const del = require('del')
+const minifycss = require('gulp-minify-css')
 
 gulp.task('sass', () => 
   gulp.src('./sass/**/*.scss')
   .pipe(sass({
-    outputStyle: 'compressed'
+    // outputStyle: 'compressed'
+    outputStyle: 'expanded'
   })
   .on('error', sass.logError))
   .pipe(gulp.dest('./css'))
 )
- 
-gulp.task('sass:watch', () => {
-  gulp.watch('./sass/**/*.scss', ['sass'])
-})
 
-gulp.task('minifyjs', () => {  
+gulp.task('sass:watch', () =>
+  gulp.watch('./sass/**/*.scss', ['sass'])
+)
+
+gulp.task('minifyjs', () =>
   gulp.src('./js/*.js')
   // .pipe(concat('main.js'))
   .pipe(rename({suffix: '.min'}))
   .pipe(uglify())
   .pipe(gulp.dest('./js'))
-})
+)
 
 gulp.task('minifycss', () =>  
   gulp.src('./css/*.css')
@@ -36,6 +36,8 @@ gulp.task('minifycss', () =>
   .pipe(gulp.dest('./css')) 
 )
 
-gulp.task('clean', cb => del(['css/*.min.css', 'js/*.min.js'], cb))
+gulp.task('clean', cb => 
+  del(['css/*.min.css', 'js/*.min.js'], cb)
+)
 
 gulp.task('minify', ['clean', 'minifyjs', 'minifycss'])
