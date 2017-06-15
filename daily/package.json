@@ -1,7 +1,7 @@
 {
-  "name": "static-cutter",
+  "name": "static-daily",
   "version": "1.0.0",
-  "description": "a static cutter",
+  "description": "a static daily",
   "author": "OwlAford <zhangyh@belink.com>",
   "license": "MIT",
   "private": true,
@@ -15,8 +15,8 @@
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.4.2",
     "gulp-concat": "^2.6.1",
-    "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0"

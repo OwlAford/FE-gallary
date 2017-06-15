@@ -5,7 +5,7 @@ const sass = require('gulp-sass')
 const concat = require('gulp-concat') 
 const uglify = require('gulp-uglify') 
 const rename = require('gulp-rename')
-const minifycss = require('gulp-minify-css')
+const minifycss = require('gulp-clean-css')
 
 gulp.task('sass', () => 
   gulp.src('./sass/**/*.scss')
