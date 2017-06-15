@@ -95,6 +95,7 @@
   bottom: 0;
   z-index: 99;
   padding-top: 20px;
+  -webkit-box-shadow: 4px 0 30px rgba(0, 0, 0, 0.08);
   box-shadow: 4px 0 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -109,7 +110,9 @@
   background-color: #4e8bed;
   color: #fff;
   text-align: center;
+  -webkit-transition: all .3s;
   transition: all .3s;
+  -webkit-box-shadow: 0 6px 32px -4px rgba(0, 102, 255, 0.28);
   box-shadow: 0 6px 32px -4px rgba(0, 102, 255, 0.28);
 }
 
@@ -125,6 +128,7 @@
 
 .menuBar .addNewGroup:hover {
   background-color: #0084ff;
+  -webkit-box-shadow: 0 8px 34px -3px rgba(0, 137, 255, 0.42);
   box-shadow: 0 8px 34px -3px rgba(0, 137, 255, 0.42);
 }
 
@@ -187,12 +191,15 @@
   margin-bottom: 15px;
   line-height: 32px;
   cursor: pointer;
+  -webkit-transition: all .3s;
   transition: all .3s;
+  -webkit-box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.08);
   color: #99a2ab;
 }
 
 .userBar .addMember:hover {
+  -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.16);
   box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.16);
 }
 
@@ -223,6 +230,7 @@
   border-radius: 6px;
   outline: none;
   color: #a6b2ad;
+  -webkit-transition: all .3s;
   transition: all .3s;
   cursor: pointer;
 }
@@ -235,6 +243,7 @@
   background-color: #49a7ff;
   background: -webkit-linear-gradient(148deg, #49A7FF 0, #2f6fdc 100%);
   color: #fff;
+  -webkit-box-shadow: 0 5px 24px -4px rgba(0, 132, 255, 0.6);
   box-shadow: 0 5px 24px -4px rgba(0, 132, 255, 0.6);
 }
 
@@ -289,6 +298,7 @@
   position: absolute;
   left: 10px;
   top: 10px;
+  -webkit-box-shadow: 0 3px 12px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 12px -2px rgba(0, 0, 0, 0.2);
 }
 
@@ -374,6 +384,7 @@
 .mainContent .timeRange {
   padding: 20px;
   background-color: #fff;
+  -webkit-box-shadow: 0 0 42px rgba(0, 0, 0, 0.08);
   box-shadow: 0 0 42px rgba(0, 0, 0, 0.08);
 }
 
@@ -414,6 +425,7 @@
   min-height: 300px;
   background-color: #fff;
   border-radius: 3px;
+  -webkit-box-shadow: 0 10px 24px -2px rgba(0, 0, 0, 0.12);
   box-shadow: 0 10px 24px -2px rgba(0, 0, 0, 0.12);
   padding: 15px;
 }

@@ -6,6 +6,7 @@ const concat = require('gulp-concat')
 const uglify = require('gulp-uglify') 
 const rename = require('gulp-rename')
 const minifycss = require('gulp-clean-css')
+const autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('sass', () => 
   gulp.src('./sass/**/*.scss')
@@ -14,6 +15,10 @@ gulp.task('sass', () =>
     outputStyle: 'expanded'
   })
   .on('error', sass.logError))
+  .pipe(autoprefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
   .pipe(gulp.dest('./css'))
 )
 
