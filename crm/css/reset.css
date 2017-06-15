@@ -1,0 +1,63 @@
+body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea {
+  margin: 0;
+  padding: 0
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  word-wrap: break-word;
+  font-size: 50px
+}
+
+h1, h2, h3 {
+  font-size: 100%
+}
+
+ol, ul {
+  list-style: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  font-size: inherit
+}
+
+fieldset, img {
+  border: 0
+}
+
+cite, em, s, i, b {
+  font-style: normal
+}
+
+input, button, textarea, select {
+  font-size: 100%
+}
+
+body, input, button, textarea, select, option {
+  font-size: normal
+}
+
+a, input, textarea {
+  text-decoration: none;
+  outline: 0
+}
+
+li, img, label, input {
+  vertical-align: middle
+}
+
+var {
+  font-style: normal
+}
+
+ins {
+  text-decoration: none
+}
+
+body {
+  font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Helvetica, Microsoft YaHei, Arial;
+  font-size: .32rem;
+}
