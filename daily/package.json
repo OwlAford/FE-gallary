@@ -1,7 +1,7 @@
 {
-  "name": "static-daily",
+  "name": "static-crm",
   "version": "1.0.0",
-  "description": "a static daily",
+  "description": "a static crm",
   "author": "OwlAford <zhangyh@belink.com>",
   "license": "MIT",
   "private": true,
