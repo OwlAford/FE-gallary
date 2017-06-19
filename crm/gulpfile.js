@@ -5,7 +5,8 @@ const del = require('del')
 const gulp = require('gulp')
 const chalk = require('chalk')
 const sass = require('gulp-sass')
-// const concat = require('gulp-concat')
+const babel = require('gulp-babel')
+const concat = require('gulp-concat')
 const uglify = require('gulp-uglify') 
 const rename = require('gulp-rename')
 const connect = require('gulp-connect')
@@ -26,6 +27,16 @@ gulp.task('sass', () =>
   // .pipe(connect.reload())
 )
 
+gulp.task('es', () =>
+  gulp.src('./es/**/*.js')
+  .pipe(babel({
+    presets: ['es2015']
+  }))
+  .pipe(gulp.dest('./js'))
+)
+
+gulp.task('compile', ['sass', 'es'])
+
 gulp.task('reload', () => {
   gulp.src('./')
   .pipe(connect.reload())
@@ -33,6 +44,10 @@ gulp.task('reload', () => {
 
 gulp.task('sass:watch', () =>
   gulp.watch('./sass/**/*.scss', ['sass'])
+)
+
+gulp.task('es:watch', () =>
+  gulp.watch('./es/**/*.js', ['es'])
 )
 
 gulp.task('file:watch', () => {
@@ -45,6 +60,12 @@ gulp.task('minifyjs', () =>
   .pipe(rename({suffix: '.min'}))
   .pipe(uglify())
   .pipe(gulp.dest('./js'))
+)
+
+gulp.task('mergejs', () =>
+  gulp.src(['./dist/js/*min.js'])
+  .pipe(concat('core.min.js'))
+  .pipe(gulp.dest('./dist/js'))
 )
 
 gulp.task('minifycss', () =>
@@ -70,7 +91,7 @@ gulp.task('server', () => {
   opn(uri + '/static')
 })
 
-gulp.task('devServer', ['sass:watch', 'file:watch', 'server'])
+gulp.task('devServer', ['sass:watch', 'es:watch', 'file:watch', 'server'])
 
 gulp.task('copycss', () => 
   gulp.src(['./css/*.min.css', './css/*.dev.css'])
