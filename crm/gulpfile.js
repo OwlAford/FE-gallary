@@ -4,14 +4,19 @@ const opn = require('opn')
 const del = require('del')
 const gulp = require('gulp')
 const chalk = require('chalk')
+const rollup = require('rollup')
 const sass = require('gulp-sass')
-const babel = require('gulp-babel')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify') 
 const rename = require('gulp-rename')
 const connect = require('gulp-connect')
+const gulpBabel = require('gulp-babel')
 const minifycss = require('gulp-clean-css')
 const autoprefixer = require('gulp-autoprefixer')
+const rollupBabel = require('rollup-plugin-babel')
+const commonjs = require('rollup-plugin-commonjs')
+const resolve = require('rollup-plugin-node-resolve')
+
 
 gulp.task('sass', () => 
   gulp.src('./sass/**/*.scss')
@@ -29,10 +34,32 @@ gulp.task('sass', () =>
 
 gulp.task('es', () =>
   gulp.src('./es/**/*.js')
-  .pipe(babel({
+  .pipe(gulpBabel({
     presets: ['es2015']
   }))
   .pipe(gulp.dest('./js'))
+)
+
+gulp.task('rollup', () => 
+  rollup.rollup({
+    entry: './es/main.js',
+    plugins: [
+      resolve(),
+      commonjs(),
+      rollupBabel({
+        exclude: 'node_modules/**'
+      })
+    ],
+  })
+  .then(bundle =>
+    bundle.write({
+      format: 'iife',
+      // format: 'cjs',
+      moduleName: 'main',
+      dest: './js/main.js',
+      sourceMap: false
+    })
+  )
 )
 
 gulp.task('compile', ['sass', 'es'])

@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "compile": "gulp compile",
+    "rollup": "gulp rollup",
     "merge": "gulp mergejs",
     "minify": "gulp minify",
     "build": "gulp build",
@@ -16,8 +17,10 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "chalk": "^1.1.3",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
@@ -30,7 +33,11 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "ip": "^1.1.5",
-    "opn": "^5.1.0"
+    "opn": "^5.1.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0"
   },
   "engines": {
     "node": ">= 4.0.0",
