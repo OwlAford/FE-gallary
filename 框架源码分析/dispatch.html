@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var foo = function (userName) {
+      console.log(userName)
+    }
+    var dispatch = function (fn) {
+      return function () {
+        fn.apply(undefined, arguments)
+      }
+    }
+    var sample = dispatch(foo)
+    sample('test')
+  </script>
+</body>
+</html>
