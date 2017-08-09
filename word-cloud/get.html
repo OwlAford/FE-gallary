@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN" xml:lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit"/>
+<title>请输入您感兴趣的关键词</title>
+<script>
+(function(n,m){var a=n||100;var j=m||1;var h=window;var l=h.document;var b=navigator.userAgent;var g=b.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);var d=b.match(/U3\/((\d+|\.){5,})/i);var e=d&&parseInt(d[1].split(".").join(""),10)>=80;var c=navigator.appVersion.match(/(iphone|ipad|ipod)/gi);var k=h.devicePixelRatio||1;if(!c&&!(g&&g[1]>534)&&!e){k=1}var f=1/k;var i=l.querySelector('meta[name="viewport"]');if(!i){i=l.createElement("meta");i.setAttribute("name","viewport");l.head.appendChild(i)}i.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+f+",maximum-scale="+f+",minimum-scale="+f);l.documentElement.style.fontSize=a/2*k*j+"px"})();
+</script>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Helvetica, Microsoft YaHei,Arial;
+    font-size: 0.28rem;
+    position: relative;
+  }
+  input::-webkit-input-placeholder {
+    color: #ccc;
+  }
+  body {
+    background-color: #DEF1FF;
+  }
+  .title {
+    font-size: 0.6rem;
+    text-align: center;
+    color: #444;
+    padding-top: 0.3rem;
+    font-weight: 700;
+    text-shadow: 0 2px 0 #fff;
+  }
+  .box {
+    width: 6rem;
+    min-height: 3rem;
+    margin: 0.2rem auto;
+    background-color: #fff;
+    border-radius: 0.12rem;
+    overflow: hidden;
+    padding: 0.4rem 0.3rem;
+    box-shadow: 0 0.36rem 0.8rem -0.08rem rgba(23, 169, 255, 0.22)
+  }
+  .ipt {
+    padding: 0.2rem;
+    border-bottom: 1px solid #bbb;
+  }
+  .ipt input {
+    width: 100%;
+    text-indent: 0.2rem;
+    transition: text-indent .3s;
+    -webkit-transition: text-indent .3s;
+  }
+  .ipt input:focus {
+    text-indent: 0;
+  }
+  button.sub {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 0.26rem;
+    font-size: 0.3rem;
+    color: #fff;
+    background-image: -webkit-gradient(linear,0% 0%, 100% 100%, from(#18A2FD), to(#28C9FC));
+    transition: background-image .3s;
+  }
+  button.sub:active {
+    background-image: -webkit-gradient(linear,0% 0%, 100% 100%, from(#157CF2), to(#25A1EC));
+  }
+</style>
+</head>
+<body>
+  <div class="title">KEYWORD</div>
+  <div class="box">
+    <div class="ipt">
+      <input type="text" value="" placeholder="请输入您感兴趣的关键词" id="val">
+    </div>
+    <button class="sub" id="btn">点击提交</button>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src = "https://cdn.wilddog.com/sdk/js/2.5.8/wilddog-sync.js"></script>
+  <!-- <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+  <script type="text/javascript">
+  $(function () {
+    wilddog.initializeApp({
+      syncURL: "https://orient.wilddogio.com"
+    });
+    var ref = wilddog.sync().ref();
+    var wordRef = ref.child('word');
+    // 重置
+    // wordRef.set({
+    //   'example': '直销银行'
+    // })
+    // 设置
+    // wordRef.push('手机银行')
+    var val = $('#val');
+    $('#btn').on('click', function () {
+      var word = (val.val()).trim();
+      // var cip = window.returnCitySN.cip.replace(/\./g, '_');
+      var cip = (new Date()).getTime();
+      if (word) {
+        var item = {};
+        item[cip] = word;
+        console.log(item);
+        wordRef.update(item, function (error) {
+          if (error == null) {
+            alert('提交成功！');
+          } else {
+            alert('提交失败！');
+          }
+        })
+      } else {
+        alert('请输入正确的关键字！');
+      }
+    })
+  })
+  </script>
+</body>
+</html>
