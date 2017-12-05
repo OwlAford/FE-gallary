@@ -1,0 +1,33 @@
+body {
+  font-size: 12px;
+  background-color: #f1f1ef;
+}
+
+.page-home {
+  .menu {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 0.24rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    .cell {
+      width: 25%;
+      height: 1.6rem;
+      text-align: center;
+      border: 1px solid #ebebeb;
+      border-width: 0 1px 1px 0;
+      box-sizing: border-box;
+      padding-top: 0.24rem;
+      transition: background-color .3s;
+
+      &:nth-child(4n) {
+        border-right: none;
+      }
+
+      &:active {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}

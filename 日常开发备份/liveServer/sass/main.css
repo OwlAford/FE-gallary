@@ -1,0 +1,236 @@
+body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  word-wrap: break-word;
+  font-size: 50px;
+}
+
+h1, h2, h3 {
+  font-size: 100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  font-size: inherit;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+cite, em, s, i, b {
+  font-style: normal;
+}
+
+input, button, textarea, select {
+  font-size: 100%;
+}
+
+body, input, button, textarea, select, option {
+  font-size: normal;
+}
+
+a, input, textarea {
+  text-decoration: none;
+  outline: 0;
+}
+
+li, img, label, input {
+  vertical-align: middle;
+}
+
+var {
+  font-style: normal;
+}
+
+ins {
+  text-decoration: none;
+}
+
+body, textarea {
+  font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Helvetica, Microsoft YaHei, Arial;
+  font-size: .32rem;
+}
+
+.ico-menu {
+  width: 0.68rem;
+  height: 0.68rem;
+  background: url(../images/menu_ico.png) no-repeat;
+  background-size: 100% auto;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.1rem;
+}
+
+.ico-menu.b {
+  background-position: 0 14.2857%;
+}
+
+.ico-menu.c {
+  background-position: 0 28.5714%;
+}
+
+.ico-menu.d {
+  background-position: 0 42.8571%;
+}
+
+.ico-menu.e {
+  background-position: 0 57.1428%;
+}
+
+.ico-menu.f {
+  background-position: 0 71.4285%;
+}
+
+.ico-menu.g {
+  background-position: 0 28.5714%;
+}
+
+.ico-menu.h {
+  background-position: 0 100%;
+}
+
+.app-list-with-title {
+  background-color: #fff;
+  width: 100%;
+}
+
+.app-list-with-title .title {
+  height: 0.72rem;
+  line-height: 0.72rem;
+  padding: 0 0.2rem;
+  color: #0094e8;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.app-list-with-title .title a {
+  color: #0094e8;
+  font-size: 14px;
+}
+
+.app-list-with-title .title i.coin {
+  width: 0.4rem;
+  height: 0.4rem;
+  background: url(../images/coin.png) no-repeat center center;
+  background-size: auto 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.app-list-with-title .list {
+  padding-left: 0.5rem;
+}
+
+.app-list-with-title .list li {
+  padding: 0.3rem 0.3rem 0.3rem 0;
+  list-style: none;
+  display: flex;
+}
+
+.app-list-with-title .list li.arr {
+  padding-right: 0.5rem;
+  position: relative;
+}
+
+.app-list-with-title .list li.arr:after {
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 0.2rem;
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  margin-top: -0.1rem;
+  background: url(../images/arrow.png) no-repeat;
+  background-size: 100% auto;
+}
+
+.app-list-with-title .list li h1 {
+  font-size: 0.5rem;
+  color: #fd451a;
+  margin-bottom: 0.2rem;
+  line-height: 1;
+}
+
+.app-list-with-title .list li h2 {
+  font-weight: normal;
+  color: #efa889;
+}
+
+.app-list-with-title .list li .left {
+  width: 55%;
+}
+
+.app-list-with-title .list li .left i.label {
+  width: 1.74rem;
+  height: 0.5rem;
+  background: url(../images/label.png) no-repeat;
+  background-size: 100% auto;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.app-list-with-title .list li .left i.label.b {
+  background-position: 0 100%;
+}
+
+.app-list-with-title .list li .right {
+  width: 45%;
+  text-align: center;
+}
+
+.app-list-with-title .list li.type2 h2 {
+  color: #82b2e7;
+}
+
+.app-list-with-title .list li + li {
+  border-top: 1px solid #eaeaea;
+}
+
+body {
+  font-size: 12px;
+  background-color: #f1f1ef;
+}
+
+.page-home .menu {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 0.24rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page-home .menu .cell {
+  width: 25%;
+  height: 1.6rem;
+  text-align: center;
+  border: 1px solid #ebebeb;
+  border-width: 0 1px 1px 0;
+  box-sizing: border-box;
+  padding-top: 0.24rem;
+  transition: background-color .3s;
+}
+
+.page-home .menu .cell:nth-child(4n) {
+  border-right: none;
+}
+
+.page-home .menu .cell:active {
+  background-color: #f1f1f1;
+}
+ 
+
+ /*# sourceMappingURL= main.css.map */

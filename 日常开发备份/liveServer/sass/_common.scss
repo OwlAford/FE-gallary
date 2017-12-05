@@ -1,0 +1,133 @@
+.ico-menu {
+  width: 0.68rem;
+  height: 0.68rem;
+  background: url(../images/menu_ico.png) no-repeat;
+  background-size: 100% auto;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.1rem;
+
+  &.b {
+    background-position: 0 14.2857%
+  }
+  &.c {
+    background-position: 0 28.5714%
+  }
+  &.d {
+    background-position: 0 42.8571%
+  }
+  &.e {
+    background-position: 0 57.1428%
+  }
+  &.f {
+    background-position: 0 71.4285%
+  }
+  &.g {
+    background-position: 0 28.5714%
+  }
+  &.h {
+    background-position: 0 100%
+  }
+}
+
+.app-list-with-title {
+  background-color: #fff;
+  width: 100%;
+
+  .title {
+    height: 0.72rem;
+    line-height: 0.72rem;
+    padding: 0 0.2rem;
+    color: #0094e8;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+    
+    a {
+      color: #0094e8;
+      font-size: 14px;
+    }
+
+    i.coin {
+      width: 0.4rem;
+      height: 0.4rem;
+      background: url(../images/coin.png) no-repeat center center;
+      background-size: auto 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .list {
+    padding-left: 0.5rem;
+
+    li {
+      padding: 0.3rem 0.3rem 0.3rem 0;
+      list-style: none;
+      display: flex;
+
+      &.arr {
+        padding-right: 0.5rem;
+        position: relative;
+      }
+
+      &.arr:after {
+        content: "";
+        display: block;
+        height: 0.2rem;
+        width: 0.2rem;
+        position: absolute;
+        right: 0.3rem;
+        top: 50%;
+        margin-top: -0.1rem;
+        background: url(../images/arrow.png) no-repeat;
+        background-size: 100% auto;
+      }
+
+      h1 {
+        font-size: 0.5rem;
+        color: #fd451a;
+        margin-bottom: 0.2rem;
+        line-height: 1;
+      }
+
+      h2 {
+        font-weight: normal;
+        color: #efa889;
+      }
+
+      .left {
+        width: 55%;
+
+        i.label {
+          width: 1.74rem;
+          height: 0.5rem;
+          background: url(../images/label.png) no-repeat;
+          background-size: 100% auto;
+          display: block;
+          margin-bottom: 0.2rem;
+
+          &.b {
+            background-position: 0 100%;
+          }
+        }
+      }
+
+      .right {
+        width: 45%;
+        text-align: center;
+      }
+
+      &.type2 {
+        h2 {
+          color: #82b2e7;
+        }
+      }
+    }
+    
+    li + li {
+      border-top: 1px solid #eaeaea;
+    }
+  }
+}
